@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <script src="https://cdn.jsdelivr.net/npm/bcryptjs/dist/bcrypt.min.js"></script>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link href="/src/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+</head>
+<body>
+    <header class=" mb-24 lg:mb-0 ">
+        <nav class="flex flex-row justify-between m-7">
+            <h3 class="text-3xl font-semibold">Expense Tracker</h3>
+            <div class="dropdown-menu flex flex-col gap-0 absolute bg-slate-200 p-4 rounded -top-full right-0 mr-6 lg:static lg:bg-white lg:mt-[-20px] lg:mr-0">
+                <ul class="flex flex-col gap-5 mt-2 lg:flex-row ">
+                    <li><a class="hover:text-gray-500" href="/expense/<%=username%>">Home</a></li>
+                    <li><a class="hover:text-gray-500" href="/create/<%=username%>">Create New Expense</a></li>
+                </ul>
+                    
+            </div>
+            <div class="toggle-button lg:hidden">
+                <button class="favorite styled bg-indigo-100 text-black-600 rounded h-7 m-2 p-1 mr-2 flex" type="button">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                    </svg>
+                </button>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <h2 class="fon text-xl ml-15 m-12 mb-0"><a href="">Create New Expense</a></h2>
+        <form id="expenseForm" class="flex flex-col m-12 mt-4" action="/create/save/<%=username%>" method="post" >
+            <!-- Hidden input to store expense ID -->
+            <input type="hidden" name="expenseId" id="expenseId" value="<%= expenseData._id %>">
+            <textarea class="w-96 bg-indigo-100 shadow rounded p-2 m-3 mt-0" id="title" name="title" placeholder="Enter the title"><%= expenseData.title || '' %></textarea>
+            <textarea class="w-[768px] h-[300px] bg-indigo-100 shadow rounded m-3 p-2" id="content" placeholder="Items..." name="content" rows="4" cols="50"><%= expenseData.content || '' %></textarea>
+        
+            <div class="flex m-3">
+                <div>
+                    <input class="m-3" id="passwordCheckbox" type="checkbox" name="encrypt" value="true">
+                    <label for="encrypt">Encrypt this file</label><br>
+                    <div id="passwordField" class="hidden"><input id="passwordInput" class=" w-[144px] bg-indigo-100 shadow rounded m-2 p-2" type="password" id="pass "  placeholder="Password" name="password" minlength="8" required disabled></div>
+                </div>
+                <div class="ml-8 " id="">
+                    <input class="m-3 mb-5" id="shareCheckbox" type="checkbox" name="share" value="true" <%= expenseData.edit ? 'checked' : '' %> >
+                    <label for="share">Shareable file</label><br>
+                    <input class="m-3" id="editCheckbox" type="checkbox" name="edit" value="true" <%= expenseData.edit ? 'checked' : '' %> >
+                    <label for="edit">Edit permissions</label><br>
+                </div>
+            </div>
+        
+            <button class="bg-blue-500 hover:bg-blue-400 text-white w-28 m-2 p-2 mb-0 rounded-md" id="createbutton" type="submit">Create</button>
+            
+        </form>
+    </main>
+    
+    <script>
+      
+        window.username = "<%= username %>"; 
+    </script>
+    <script src="/create.js"></script>
+
+</body>
+</html>

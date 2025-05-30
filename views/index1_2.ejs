@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense Tracker</title>
+    <link rel="stylesheet" href="/public/css/style.css">
+    <link href="/src/output.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+</head>
+<body>
+  <header class=" mb-24 lg:mb-0 ">
+    <nav class="flex flex-row justify-between m-7">
+        <h3 class="text-3xl font-semibold">Expense Tracker</h3>
+        <div class="dropdown-menu flex flex-col gap-0 absolute bg-slate-200 p-4 rounded -top-full right-0 mr-6 lg:static lg:bg-white lg:mt-[-20px] lg:mr-0">
+            <ul class="flex flex-col gap-5 mt-2 lg:flex-row ">
+                <li><a class="hover:text-gray-500" href="">Home</a></li>
+                <li><a class="hover:text-gray-500" href="">Create New Expense</a></li>
+            </ul>
+                
+        </div>
+        <div class="toggle-button lg:hidden">
+            <button class="favorite styled bg-indigo-100 text-black-600 rounded h-7 m-2 p-1 mr-2 flex" type="button">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                </svg>
+            </button>
+        </div>
+    </nav>
+</header>
+    <main>
+        <div class="flex justify-center ">
+          <div class="flex flex-col hover:shadow-xl rounded-md">
+            <h4 class="text-2xl pb-3 pl-2">Create new account</h4>
+            <form class="flex flex-col" action="/signUp/createLogins" method="post">
+             <label for="name">
+                 <input class="w-52 bg-indigo-100 shadow rounded m-2 p-2 " type="name" id="name" name="usernameLogins" placeholder="Enter username">
+             </label>
+              <label for="email">
+              <input class="w-52 bg-indigo-100 shadow rounded m-2 p-2 " type="email" id="email" name="emailLogins" placeholder="Enter your email"></label>
+              <input class="w-52 bg-indigo-100 shadow rounded m-2 p-2" type="password" id="pass" placeholder="password" name="passwordLogins" minlength="8" required />
+              <input class="bg-blue-500 hover:bg-blue-400 text-white w-28 m-2 p-2 rounded-md" type="submit" value="Sign up" />
+            </form> 
+            <a href="/auth/google"><button  class="bg-blue-500 hover:bg-blue-400 text-white m-2 p-2 rounded-md" >Login with Google</button></a>
+          </div>
+        </div>
+    </main>
+    <script src="/nav.js"></script>
+</body>
+</html>

@@ -1,0 +1,12 @@
+# Node modules should not be uploaded
+node_modules/
+
+# Hide environment secrets
+.env
+
+# Logs
+*.log
+
+# OS or editor-specific junk files
+.DS_Store
+.vscode/

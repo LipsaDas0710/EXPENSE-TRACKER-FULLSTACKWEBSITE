@@ -1,0 +1,207 @@
+//darkMode
+        const sunIcon= document.querySelector(".sun");
+        const moonIcon= document.querySelector(".moon");
+
+        //theme in sys or choice
+        const userTheme= localStorage.getItem("theme");
+        const systemtheme =window.matchMedia("(prefers-color-scheme:dark)").matches;
+
+        //toggle the icons
+        const iconToggle =()=>{
+            moonIcon.classList.toggle("display-none");
+            sunIcon.classList.toggle("display-none");
+        };
+        //check the theme
+        const themeCheck=()=>{
+            if(userTheme=="dark"||(!userTheme && systemtheme)){
+                document.documentElement.classList.add("dark");
+                moonIcon.classList.add("display-none");
+                return;
+            }
+            sunIcon.classList.add("display-none");
+        };
+
+        //swtich theme
+        const themeSwitch=()=>{
+            if(document.documentElement.classList.containts("dark")){
+                document.documentElement.classList.remove("dark");
+                localStorage.setItem("theme","light");
+                iconToggle();
+                return;
+            }
+            document.documentElement.classList.add("dark");
+            localStorage.setItem("theme","light");
+            iconToggle();
+        };
+        //switch when button is clicked
+        sunIcon.addEventListener("click",()=>{
+            themeSwitch();
+        });
+
+        moonIcon.addEventListener("click",()=>{
+            themeSwitch();
+        });
+        //call theme check
+        themeCheck();
+
+        //the expense schema!!!!!!
+        const mongoose = require('mongoose');
+
+const schema = new mongoose.Schema({
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "userLogins"
+    },
+    title: String,
+    content: String,
+    encrypt: {
+        type: Boolean,
+        default: false
+    },
+    share: {
+        type: Boolean,
+        default: false
+    },
+    edit: {
+        type: Boolean,
+        default: false
+    },
+    password: {
+        type: String,
+        required: function() {
+            return this.encrypt;
+        },
+        select: false  // To exclude password by default from queries for security
+    }
+});
+
+// Pre-save middleware to check and handle password field
+schema.pre('save', function(next) {
+    if (!this.encrypt) {
+        this.password = undefined;  // Remove the password if encrypt is false
+    }
+    next();
+});
+
+const Model = mongoose.model('ModelName', schema);
+
+
+
+    <!-- try {
+                const response = await fetch("/expenseCreated", { method: "POST" });
+                if (response.ok) {
+                    console.log("Request was successful!");
+            // Additional code to handle successful response
+            } else {
+                console.log("Error:", response.statusText);
+            // Additional code to handle errors
+            }
+            } catch (error) {
+                console.log("Fetch error:", error);
+            } -->
+
+
+             <!-- const response = await fetch("http://localhost:9000/expenseCreated", { method: "GET",
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ userId, password }) });
+            const result = await response.text(); // Convert response to text
+            console.log(result); -->
+
+
+
+
+
+
+
+
+            !!!!!!!!!!miedmmoeo!!!!!!!!!!!!!1
+
+            //handling create button (it takes me to the net page which is where all the expenses are visible)
+        const create=document.querySelector("#createbutton");
+        create.addEventListener("click", async (event) => {
+
+            event.preventDefault();
+
+            // Collect form data and convert it to an object
+            const formData = new FormData(document.querySelector("#createForm"));
+            const data = Object.fromEntries(formData);
+           
+            const useremail = '<%= useremail %>';
+           
+            const response = await fetch(`/${useremail}/encrypt`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            });
+            if (response.ok) {
+                // Redirect or update the page after successful creation
+                window.location.href = `/${useremail}/redirect`;
+               
+            } else {
+                console.error("Failed to create expense.");
+            }
+        });
+
+         //handling encrypt 
+         encrypt.addEventListener('change',(event)=>{
+            if(event.target.checked) {console.log("checked encrpyt");}
+            else {console.log("not checkec encrypt");}
+        });
+
+???????????????????????????????????????????????????????????
+
+  
+    const expenseId =  expenseFile.map(expense => expense._id);
+    console.log(expenseId);
+
+    const expense = createdUser.expense.find(exp => exp._id.toString() === expenseId);
+
+    if (!expense) {
+        return res.status(404).send("Expense not found");
+    }
+
+    console.log(expenseId);
+
+
+
+
+    >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> viewsExpense>>>>>>>>>>>>>>>>>>
+
+     <!-- window.onload = async () => {
+            const expenseId = document.getElementById("expenseId").value;
+        
+            try {
+                //const response = await fetch(`/edit/expense/${expenseId}`);
+                const expense = await response.json();
+        
+                // Enable or disable the button based on the 'edit' state
+                const editButton = document.getElementById("editButton");
+                editButton.disabled = !expense.edit;
+            } catch (error) {
+                console.error("Error fetching expense:", error);
+            }
+        };
+         -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+nav bar!!!!!!!!!!!!!!!
+window.onload = () => {
+    const toggleBtn =document.querySelector(".toggle-button");
+    const dropdown =document.querySelector(".dropdown-menu");        
+    toggleBtn.addEventListener("click",()=>{
+        dropdown.classList.toggle('top-16');
+    })
+}
