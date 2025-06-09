@@ -13,7 +13,7 @@ _(Update this once deployed)_
 
 ## 🖼️ Screenshot
 
-![App Screenshot](./Screenshot 2025-06-09 151027.png)
+![App Screenshot](./Screenshot2025-06-09151027png)
 
 
 
