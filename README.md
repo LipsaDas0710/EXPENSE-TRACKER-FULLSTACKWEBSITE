@@ -6,8 +6,8 @@ A secure and feature-rich full-stack expense tracking web application where user
 
 ## 🚀 Live Demo
 
-🌐 [Live App on Render](https://your-render-link-here.com)  
-_(Update this once deployed)_
+🌐 [Live App on Render](https://expense-tracker-5aov.onrender.com)  
+
 
 
 
