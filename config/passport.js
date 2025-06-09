@@ -22,9 +22,11 @@ async (accessToken, refreshToken, profile, done) => {
         email: profile.emails[0].value,
         password: ''
     });
+    return done(null, savedUser);
 
 
   } catch (error) {
+    console.error('Error in strategy:', error);
     done(error, null);
   }
 }));
