@@ -4,16 +4,13 @@ A secure and feature-rich full-stack expense tracking web application where user
 
 
 
+![App Screenshot](./Screenshot%202025-06-09%20151027.png)
+
+
+
 ## 🚀 Live Demo
 
 🌐 [Live App on Render](https://expense-tracker-5aov.onrender.com)  
-
-
-
-
-## 🖼️ Screenshot
-
-![App Screenshot](./Screenshot%202025-06-09%20151027.png)
 
 
 
