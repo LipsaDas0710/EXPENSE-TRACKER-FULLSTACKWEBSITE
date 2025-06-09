@@ -7,46 +7,6 @@ router.get('/google', passport.authenticate('google', {
   scope: ['profile', 'email']
 }));
 
-// Google callback route
-// router.get('/google/callback',
-//   passport.authenticate('google', { failureRedirect: '/login' }),
-//   (req, res) => {
-//      console.log('Authenticated user:', req.user);
-//     const username = req.user.name.givenName; 
-//     res.redirect(`/expense/${username}`) // redirect to homepage or dashboard after successful login
-//   }
-// );
-
-// router.get('/google/callback',
-//   passport.authenticate('google', { failureRedirect: '/login' }),
-//   (req, res) => {
-//     console.log('req.user:', req.user); // Should print full user doc
-
-//     if (!req.user || !req.user.username) return res.redirect('/login');
-
-//     const redirectUrl = `/expense/${encodeURIComponent(req.user.username)}`;
-//     console.log('Redirecting to:', redirectUrl);
-//     res.redirect(redirectUrl);
-//   }
-// );
-
-
-// router.get('/google/callback',
-//   passport.authenticate('google', { failureRedirect: '/login' }),
-//   (req, res) => {
-//     try {
-//       console.log('req.user:', req.user);
-//       if (!req.user || !req.user.username) return res.redirect('/login');
-
-//       const redirectUrl = `/expense/${encodeURIComponent(req.user.username)}`;
-//       console.log('Redirecting to:', redirectUrl);
-//       res.redirect(redirectUrl);
-//     } catch (e) {
-//       console.error('Error in redirect handler:', e);
-//       res.redirect('/login');
-//     }
-//   }
-// );
 
 router.get('/google/callback', (req, res, next) => {
   passport.authenticate('google', (err, user, info) => {
@@ -69,7 +29,6 @@ router.get('/google/callback', (req, res, next) => {
       // 🔥 Force session save before redirect
       req.session.save(() => {
         const redirectUrl = `/expense/${encodeURIComponent(user.username)}`;
-        console.log('✅ Redirecting to:', redirectUrl);
         res.redirect(redirectUrl);
       });
     });
