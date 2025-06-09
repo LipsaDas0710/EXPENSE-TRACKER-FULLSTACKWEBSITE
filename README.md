@@ -2,20 +2,20 @@
 
 A secure and feature-rich full-stack expense tracking web application where users can log in, track daily expenses, encrypt entries, and share them with others — all with support for Google OAuth, JWT authentication, and MongoDB relationships.
 
----
+
 
 ## 🚀 Live Demo
 
 🌐 [Live App on Render](https://your-render-link-here.com)  
 _(Update this once deployed)_
 
----
+
 
 ## 🖼️ Screenshot
 
 ![App Screenshot](./screenshot.png)
 
----
+
 
 ## 🔧 Tech Stack
 
@@ -29,7 +29,7 @@ _(Update this once deployed)_
 - JWT Authentication
 - Middleware architecture
 
----
+
 
 ## ✨ Features
 
@@ -42,7 +42,7 @@ _(Update this once deployed)_
 - 🎯 Middleware usage for route protection
 - 📦 Reference schema relationships in MongoDB
 
----
+
 
 ## 🛠️ Getting Started
 
@@ -51,7 +51,7 @@ _(Update this once deployed)_
 - Node.js and npm installed
 - MongoDB running locally or via Atlas
 
----
+
 
 ### 📦 Installation
 
