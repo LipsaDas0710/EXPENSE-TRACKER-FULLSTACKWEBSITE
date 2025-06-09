@@ -7,6 +7,9 @@ passport.use(new GoogleStrategy({
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
   callbackURL: process.env.GOOGLE_CALLBACK_URL,
 },
+
+
+
 async (accessToken, refreshToken, profile, done) => {
   try {
     console.log(profile)
@@ -29,6 +32,10 @@ async (accessToken, refreshToken, profile, done) => {
     console.error('Error in strategy:', error);
     done(error, null);
   }
+  console.log("GOOGLE_CLIENT_ID:", process.env.GOOGLE_CLIENT_ID);
+console.log("GOOGLE_CLIENT_SECRET:", process.env.GOOGLE_CLIENT_SECRET ? "Exists" : "Missing");
+console.log("GOOGLE_CALLBACK_URL:", process.env.GOOGLE_CALLBACK_URL);
+
 }));
 
 passport.serializeUser((user, done) => {
