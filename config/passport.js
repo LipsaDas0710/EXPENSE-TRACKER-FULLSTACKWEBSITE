@@ -17,7 +17,8 @@ async (accessToken, refreshToken, profile, done) => {
     }
 
    const savedUser = await User.create({
-        username: profile.displayName,
+        googleId: profile.id,
+        username: profile.name.givenName,
         email: profile.emails[0].value,
         password: ''
     });
@@ -32,6 +33,6 @@ passport.serializeUser((user, done) => {
   done(null, user.id);
 });
 passport.deserializeUser(async (id, done) => {
-  // const user = await User.findById(id);
-  done(null, id);
+  const user = await User.findById(id);
+  done(null, user);
 });

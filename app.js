@@ -34,7 +34,7 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
-app.use(googleAuthRoutes);
+app.use('/auth', googleAuthRoutes);
 
 const indexRouter=require("./routes/index-route");
 app.use("/",indexRouter);
@@ -65,6 +65,9 @@ app.use('/share',indexShare);
 
 const indexEncrypt=require("./routes/index-encrypt");
 app.use('/encrypt',indexEncrypt);
+
+const indexAuth=require("./routes/index-auth");
+app.use('/auth',indexAuth);
 
 app.listen(PORT , () => {
     console.log('Server is running on port 3000');
