@@ -7,7 +7,7 @@ A secure and feature-rich full-stack expense tracking web application where user
 ![App Screenshot](./Screenshot%202025-06-09%20151027.png)
 
 
-![App Screenshot](./Screenshot%202025-06-09%20151027.png)
+![App Screenshot](./Screenshot%2025-07-13%163940.png)
 
 
 
